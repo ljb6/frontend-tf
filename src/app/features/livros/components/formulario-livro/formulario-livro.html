@@ -1,0 +1,53 @@
+<dialog #dialogo class="modal" (close)="aoFechar()">
+  <form class="formulario" (submit)="enviar($event)">
+    <header>
+      <div>
+        <span class="etiqueta">Novo título</span>
+        <h2>Adicionar livro</h2>
+      </div>
+      <button class="fechar" type="button" (click)="dialogo.close()" aria-label="Fechar formulário">×</button>
+    </header>
+
+    <div class="grade-formulario">
+      <label class="campo campo-largo">
+        <span>Título</span>
+        <input type="text" required placeholder="Ex.: Dom Casmurro" [value]="titulo()" (input)="alterarTexto('titulo', $event)" />
+      </label>
+
+      <label class="campo">
+        <span>Autor</span>
+        <input type="text" required placeholder="Nome do autor" [value]="autor()" (input)="alterarTexto('autor', $event)" />
+      </label>
+
+      <label class="campo">
+        <span>Categoria</span>
+        <input type="text" required placeholder="Ex.: Romance" [value]="categoria()" (input)="alterarTexto('categoria', $event)" />
+      </label>
+
+      <label class="campo">
+        <span>Ano</span>
+        <input type="number" required min="1" step="1" placeholder="2026" [value]="ano() ?? ''" (input)="alterarAno($event)" />
+      </label>
+
+      <label class="campo">
+        <span>Status</span>
+        <select [value]="status()" (change)="alterarStatus($event)">
+          <option value="disponível">Disponível</option>
+          <option value="indisponível">Indisponível</option>
+        </select>
+      </label>
+
+      <label class="campo campo-largo">
+        <span>Descrição <small>(opcional)</small></span>
+        <textarea rows="4" placeholder="Escreva uma breve descrição" [value]="descricao()" (input)="alterarTexto('descricao', $event)"></textarea>
+      </label>
+    </div>
+
+    <footer class="acoes">
+      <button class="botao-secundario" type="button" (click)="dialogo.close()">Cancelar</button>
+      <button class="botao-primario" type="submit" [disabled]="salvando()">
+        {{ salvando() ? 'Salvando...' : 'Salvar livro' }}
+      </button>
+    </footer>
+  </form>
+</dialog>

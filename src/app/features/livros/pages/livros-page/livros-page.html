@@ -1,0 +1,37 @@
+<main class="pagina">
+  <header class="cabecalho">
+    <div>
+      <span class="marca">Minha Biblioteca</span>
+      <h1>Acervo de livros</h1>
+      <p>Consulte, filtre e organize os títulos cadastrados.</p>
+    </div>
+    <button class="botao-primario" type="button" (click)="abrirFormulario()">
+      <span aria-hidden="true">＋</span> Adicionar livro
+    </button>
+  </header>
+
+  <section class="painel" aria-label="Catálogo de livros">
+    <app-filtro-livros
+      [pesquisa]="pesquisa()"
+      [status]="filtroStatus()"
+      (pesquisaChange)="atualizarPesquisa($event)"
+      (statusChange)="atualizarStatus($event)" />
+
+    <div class="resumo">
+      <strong>{{ livrosFiltrados().length }}</strong>
+      {{ livrosFiltrados().length === 1 ? 'livro encontrado' : 'livros encontrados' }}
+    </div>
+
+    <app-lista-livros
+      [livros]="livrosFiltrados()"
+      [carregando]="carregando()"
+      [erro]="erro()"
+      (excluir)="excluirLivro($event)" />
+  </section>
+
+  <app-formulario-livro
+    [aberto]="modalAberto()"
+    [salvando]="salvando()"
+    (fechar)="fecharFormulario()"
+    (salvar)="criarLivro($event)" />
+</main>

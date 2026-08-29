@@ -1,0 +1,22 @@
+<article class="card">
+  <div class="topo-card">
+    <span class="categoria">{{ livro().categoria }}</span>
+    <span class="status" [class.indisponivel]="livro().status === 'indisponível'">
+      {{ livro().status }}
+    </span>
+  </div>
+
+  <div class="conteudo-card">
+    <h2>{{ livro().titulo }}</h2>
+    <p class="autor">por {{ livro().autor }}</p>
+    <p class="descricao">{{ livro().descricao || 'Sem descrição cadastrada.' }}</p>
+  </div>
+
+  <footer>
+    <span class="ano">Publicado em {{ livro().ano }}</span>
+    <div class="acoes-card">
+      <a [routerLink]="['/livros', livro().id]">Ver detalhes</a>
+      <button type="button" (click)="excluir.emit(livro().id)">Excluir</button>
+    </div>
+  </footer>
+</article>

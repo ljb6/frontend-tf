@@ -1,0 +1,20 @@
+<section class="filtros" aria-label="Filtros do acervo">
+  <label class="campo-pesquisa">
+    <span class="sr-only">Pesquisar livros</span>
+    <span aria-hidden="true">⌕</span>
+    <input
+      type="search"
+      placeholder="Pesquisar por título, autor ou categoria"
+      [value]="pesquisa()"
+      (input)="alterarPesquisa($event)" />
+  </label>
+
+  <label class="campo-status">
+    <span>Status</span>
+    <select [value]="status()" (change)="alterarStatus($event)">
+      <option value="todos">Todos</option>
+      <option value="disponível">Disponível</option>
+      <option value="indisponível">Indisponível</option>
+    </select>
+  </label>
+</section>

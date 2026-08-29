@@ -1,0 +1,96 @@
+.pagina {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 64px 0 80px;
+}
+
+.cabecalho {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 36px;
+}
+
+.marca {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: var(--cor-primaria);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.cabecalho p {
+  margin: 16px 0 0;
+  color: var(--cor-texto-suave);
+  font-size: 1.05rem;
+}
+
+.botao-primario {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 10px;
+  color: white;
+  background: var(--cor-primaria);
+  box-shadow: 0 8px 20px rgba(49, 92, 75, 0.2);
+  cursor: pointer;
+  font-weight: 700;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.botao-primario:hover {
+  background: var(--cor-primaria-escura);
+  transform: translateY(-1px);
+}
+
+.painel {
+  padding: 26px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 18px;
+  background: rgba(255, 253, 249, 0.88);
+  box-shadow: var(--sombra);
+}
+
+.resumo {
+  margin: 24px 0 16px;
+  color: var(--cor-texto-suave);
+  font-size: 0.88rem;
+}
+
+.resumo strong {
+  color: var(--cor-texto);
+}
+
+@media (max-width: 680px) {
+  .pagina {
+    width: min(100% - 24px, 1180px);
+    padding: 36px 0 48px;
+  }
+
+  .cabecalho {
+    align-items: stretch;
+    flex-direction: column;
+    margin-bottom: 24px;
+  }
+
+  .painel {
+    padding: 16px;
+    border-radius: 14px;
+  }
+}
