@@ -8,7 +8,7 @@ describe('LivrosService', () => {
   let service: LivrosService;
   let http: HttpTestingController;
 
-  const apiUrl = 'http://localhost:3000/api/livros';
+  const apiUrl = 'https://backend-tf-v05y.onrender.com/api/livros';
   const livro: Livro = {
     id: '66d0c7d32d23d81613fd975a',
     titulo: 'Dom Casmurro',

@@ -8,7 +8,7 @@ import { Livro, NovoLivro } from '../models/livros';
 })
 export class LivrosService {
   private readonly http = inject(HttpClient);
-  private readonly apiUrl = 'http://localhost:3000/api/livros';
+  private readonly apiUrl = 'https://backend-tf-v05y.onrender.com/api/livros';
 
   listar(): Promise<Livro[]> {
     return firstValueFrom(this.http.get<Livro[]>(this.apiUrl));
